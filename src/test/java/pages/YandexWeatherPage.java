@@ -9,6 +9,16 @@ public class YandexWeatherPage extends Page {
     @FindBy(xpath = "//div[text()='Сегодня']/ancestor::div[1]/following-sibling::div[2]//span[text()='днём']/following-sibling::span[contains(@class,'temp__value')]")
     WebElement tomorrowTemperatureLoc;
 
+    @Override
+    public String getPageName() {
+        return "Яндекс погода";
+    }
+
+    @Override
+    public WebElement getElementByName(String elementName) {
+        return null;
+    }
+
     public YandexWeatherPage(WebDriver driver) {
         super(driver);
     }

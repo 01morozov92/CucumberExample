@@ -1,5 +1,6 @@
 package pages;
 
+import cucumba.BaseElement;
 import lombok.NoArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.junit.Assert;
@@ -9,12 +10,17 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
 
 import static junit.framework.TestCase.fail;
 
 @Log4j2
 @NoArgsConstructor
 public abstract class Page {
+
+    public abstract String getPageName();
+
+    abstract public WebElement getElementByName(String elementName);
 
     protected WebDriver driver;
 
@@ -87,7 +93,7 @@ public abstract class Page {
         return locator;
     }
 
-    WebElement waitForElementPresent(WebElement locator, String errorMessage) {
+    public WebElement waitForElementPresent(WebElement locator, String errorMessage) {
         return waitForElementPresent(locator, errorMessage, 5);
     }
 
