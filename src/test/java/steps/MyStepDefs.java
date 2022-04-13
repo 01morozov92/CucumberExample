@@ -89,7 +89,7 @@ public class MyStepDefs {
     @SneakyThrows
     public void clickOnElement(String pageName, String elementName) {
         allPages.waitForElementAndClick(allPages.getPageByName(pageName).getElementByName(elementName),
-                "Не удалось кликнуть на эелемент: " + elementName);
+                "Не удалось кликнуть на эелемент: " + elementName, 15);
     }
 
     @Дано("пользователь на странице {string} вводит текст: {string}, в элемент {string}")

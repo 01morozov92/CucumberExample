@@ -20,7 +20,6 @@
             <artifactId>allure-cucumber5-jvm</artifactId>
             <version>2.17.3</version>
         </dependency>
-
         <!--LOGGING-->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>

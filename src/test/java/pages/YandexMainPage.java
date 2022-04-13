@@ -21,11 +21,15 @@ public class YandexMainPage extends Page {
     @Override
     public String getPageName() {
         return "Главная страница";
-    }
+}
 
 
     private List<BaseElement> elements = Arrays.asList(
-            getCurrentTemperatureLoc(), getSearchBtn(), getSearchInput(), getWeatherLoc()
+            getCurrentTemperatureLoc(),
+            getSearchBtn(),
+            getSearchInput(),
+            getWeatherLoc(),
+            getYandexPictures()
     );
 
     @Override
@@ -36,8 +40,11 @@ public class YandexMainPage extends Page {
                 .orElseThrow(() -> new Error("На странице не найден элемент для наименования: " + elementName)).getWebElement();
     }
 
+
     @FindBy(xpath = "//input[@aria-label='Запрос']")
     WebElement globalInputFieldLoc;
+     @FindBy(xpath = "//*[text()='Картинки']")
+    WebElement yandexPictures;
     @FindBy(css = ".search2__button")
     WebElement searchBtn;
     @FindBy(css = ".mini-suggest__input")
@@ -57,6 +64,13 @@ public class YandexMainPage extends Page {
         return BaseElement.builder()
                 .webElement(currentTemperatureLoc)
                 .elementName("Текущая температура")
+                .build();
+    }
+
+     private BaseElement getYandexPictures(){
+        return BaseElement.builder()
+                .webElement(yandexPictures)
+                .elementName("Яндекс картинки")
                 .build();
     }
 
